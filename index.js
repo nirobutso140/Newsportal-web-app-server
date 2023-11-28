@@ -29,11 +29,20 @@ async function run() {
     //collection
 
     const usersCollection = client.db("newsPortalDB").collection("userCollection")
+    const publisherCollection = client.db("newsPortalDB").collection("publisherCollection")
 
     app.post("/users", async (req, res) => {
       const user = req.body;
       //   console.log(user);
       const result = await usersCollection.insertOne(user);
+      console.log(result);
+      res.send(result);
+    });
+
+    app.post("/publisher", async (req, res) => {
+      const publisher = req.body;
+      //   console.log(user);
+      const result = await publisherCollection.insertOne(publisher);
       console.log(result);
       res.send(result);
     });
