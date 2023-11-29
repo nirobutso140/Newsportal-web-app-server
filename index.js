@@ -47,6 +47,12 @@ async function run() {
       res.send(result);
     });
 
+     app.get("/publisher", async (req, res) => {
+      const result = await publisherCollection.find().toArray();
+      res.send(result);
+    });
+
+
     app.get("/users", async (req, res) => {
       const result = await usersCollection.find().toArray();
       res.send(result);
