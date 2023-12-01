@@ -59,7 +59,7 @@ async function run() {
       
 
 
-     app.get("/publisher", async (req, res) => {
+    app.get("/publisher", async (req, res) => {
       const result = await publisherCollection.find().toArray();
       res.send(result);
     });
@@ -67,6 +67,11 @@ async function run() {
 
     app.get("/users", async (req, res) => {
       const result = await usersCollection.find().toArray();
+      res.send(result);
+    });
+
+    app.get("/article", async (req, res) => {
+      const result = await artileCollection.find().toArray();
       res.send(result);
     });
 
