@@ -30,6 +30,7 @@ async function run() {
 
     const usersCollection = client.db("newsPortalDB").collection("userCollection")
     const publisherCollection = client.db("newsPortalDB").collection("publisherCollection")
+    const artileCollection =  client.db("newsPortalDB").collection("articleCollection")
 
     app.post("/users", async (req, res) => {
       const user = req.body;
@@ -46,6 +47,17 @@ async function run() {
       console.log(result);
       res.send(result);
     });
+
+      app.post("/article", async (req, res) => {
+      const article = req.body;
+      //   console.log(user);
+      const result = await artileCollection.insertOne(article);
+      console.log(result);
+      res.send(result);
+    });
+
+      
+
 
      app.get("/publisher", async (req, res) => {
       const result = await publisherCollection.find().toArray();
